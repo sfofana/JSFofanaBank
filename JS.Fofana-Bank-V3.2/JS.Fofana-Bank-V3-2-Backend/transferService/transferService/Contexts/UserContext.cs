@@ -1,0 +1,86 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using transferService.Models;
+
+namespace transferService.Contexts
+{
+    public class UserContext : DbContext
+    {
+        public DbSet<User> User { get; set; }
+        public DbSet<Account> Account { get; set; }
+        public UserContext(DbContextOptions options) : base(options)
+        {
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    id = 1,
+                    _id = "5e98e708caf2bf4d70a1dc25",
+                    firstname = "Amir",
+                    lastname = "Kamara",
+                    email = "master@gmail.com",
+                    password = "demo"
+                },
+                new User
+                {
+                    id = 2,
+                    _id = "5e98e78dcaf2bf4d70a1dc26",
+                    firstname = "System",
+                    lastname = "Admin",
+                    email = "system@gmail.com",
+                    password = "admin"
+                }
+                );
+            modelBuilder.Entity<Account>().HasData(
+                new Account
+                {
+                    id = 1001,
+                    name = "saving",
+                    amount = 0,
+                    user = 1
+                },
+                new Account
+                {
+                    id = 1002,
+                    name = "checking",
+                    amount = 0,
+                    user = 1
+                },
+                new Account
+                {
+                    id = 1003,
+                    name = "saving",
+                    amount = 0,
+                    user = 1
+                },
+                new Account
+                {
+                    id = 1004,
+                    name = "checking",
+                    amount = 0,
+                    user = 1
+                },
+                new Account
+                {
+                    id = 1005,
+                    name = "checking",
+                    amount = 0,
+                    user = 2
+                },
+                new Account
+                {
+                    id = 1006,
+                    name = "saving",
+                    amount = 0,
+                    user = 2
+                }
+                );
+        }
+    }
+}

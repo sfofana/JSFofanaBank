@@ -1,0 +1,8 @@
+package com.sfofana.app.bank.utility;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class JsonUtility {
+
+}

@@ -1,0 +1,5 @@
+package com.sfofana.app.bank.utility;
+
+public class JsonUtility {
+
+}

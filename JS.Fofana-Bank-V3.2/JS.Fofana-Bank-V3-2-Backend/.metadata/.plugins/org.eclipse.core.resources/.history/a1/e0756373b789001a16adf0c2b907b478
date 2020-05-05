@@ -1,0 +1,20 @@
+package com.sfofana.app.bank.utility;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@Component
+public class JsonUtility {
+
+	@Autowired
+	private static ObjectMapper objectMapper;
+	
+	public static <T> T jsonStringToObject(String json, Class<T> clazz) throws JsonMappingException, JsonProcessingException{
+		T object = objectMapper.readValue(json, clazz);
+		return object;
+	}
+}
